@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="kbas.png" type="image/x-icon">
+    <title>Kayra Halil Usta - Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+/*Header Tasarımı*/
+        header {
+    background-color: #808080; /* Navbar daha koyu gri */
+    padding: 0.5em 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between; /* Logo solda, linkler sağda */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo img {
+    max-height: 100px;
+
+}
+
+.nav-links {
+    display: flex;
+    gap: 2em;
+}
+
+.nav-links a {
+    color: #292929; 
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.nav-links a img {
+    margin-right: 0.5em;
+}
+
+.nav-links a:hover {
+    color: #555;
+}
+/*Header Tasarımı*/
+
+/*Footer Tasarımı*/
+footer {
+    background-color: #292929; /* Daha koyu bir footer */
+    color: white;
+    padding: 2em 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-logo img {
+    max-height: 60px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 2em;
+}
+
+.footer-links a {
+    color: #ccc;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    margin-left: -2%;
+}
+
+.footer-links a:hover {
+    color: #5beb63; /* Hover renginde yeşil efekt */
+}
+
+.footer-social {
+    display: flex;
+    gap: 1em;
+}
+
+.footer-social a img {
+    transition: opacity 0.3s ease;
+}
+
+.footer-social a:hover img {
+    opacity: 0.7;
+}
+
+.footer-bottom {
+    margin-top: 1em;
+    font-size: 0.9em;
+    color: #888;
+}
+/*Footer Tasarımı*/
+
+        main {
+            display: flex;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            flex: 1;
+            box-sizing: border-box;
+        }
+/*Sağ Bölüm Tasarımı*/
+        .about-me {
+            flex: 0.3;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        article {
+            margin-bottom: 20px;
+        }
+
+        .profile-image {
+            margin-right: 20px;
+        }
+
+        .about-me p {
+            margin-left: 20px;
+        }
+
+        .about-me p img {
+            margin-right: 5px;
+        }
+
+        .about-me p:nth-child(2),
+        .about-me p:nth-child(3) {
+            color: #A9A9A9;
+        }
+        .about-me p:nth-child(4) {
+            color: #696969;
+        }
+        .bosyazi {
+            color: #696969;
+        }
+/*Sağ Bölüm Tasarımı*/
+
+.blog-posts {
+    flex: 1;
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+/* Kod Alanı Stilleri */
+.code-area {
+   
+    margin-top: 20px; /* Üstten biraz boşluk bırak */
+    padding: 20px;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    box-sizing: border-box; /* Kenar boşluklarını dahil et */
+    max-width: 100%; /* Yatay genişliği blog-posts divi ile eşitle */
+}
+
+.code-area h3 {
+    margin-bottom: 15px;
+}
+
+.code-area pre {
+    background-color: #333;
+    color: #f4f4f4;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+.code-area code {
+    display: block;
+    white-space: pre;
+}
+.blog-post-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px; /* Optional: Adds space below the content */
+}
+
+.blog-post-content .icon {
+    margin-bottom: 10px; /* Space between the image and the heading */
+}
+/* ... diğer stil kuralları ... */
+/* General button style */
+.back-button {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 30px;
+  color: #333;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+  margin-top: 2%;
+}
+
+/* Hover effect for the button */
+.back-button:hover {
+  background-color: #e0e0e0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  color: #333;
+}
+
+/* Active effect for when the button is clicked */
+.back-button:active {
+  background-color: #d0d0d0;
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Optional styling for focus (keyboard navigation) */
+.back-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+}
+@media screen and (max-width: 720px) {
+    .blog-post-content img{
+        height: auto;
+        width: 100%;
+        
+    }
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    header {
+        background-color: #808080;
+        padding: 0.5em 0;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .logo img {
+        max-height: 80px;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        align-items: center;
+    }
+
+    .nav-links a {
+        font-size: 1em;
+        text-align: center;
+    }
+
+    footer {
+        background-color: #292929;
+        color: white;
+        padding: 1.5em 0;
+        text-align: center;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5em;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .footer-logo img {
+        max-height: 50px;
+    }
+
+    .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        align-items: center;
+    }
+
+    .footer-links a {
+        font-size: 0.9em;
+    }
+
+    main {
+        display: block;
+        max-width: 100%;
+        margin: 10px;
+        padding: 15px;
+        background-color: white;
+    }
+
+    .about-me {
+        flex: none;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .blog-posts {
+        max-width: 100%;
+        margin: 0;
+        padding: 10px;
+    }
+
+    .code-area {
+        padding: 15px;
+        border: 1px solid #ccc;
+        background-color: #f4f4f4;
+    }
+
+    .back-button {
+        padding: 10px 20px;
+        font-size: 14px;
+        margin-top: 10px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="kayra.png" width="320px" height="100px" alt="Logo">
+            </div>
+            <div class="nav-links">
+                <a href="https://www.youtube.com/@kayrausta8728"><img src="yt.png" width="20px" height="20px" alt="Youtube Icon"> Youtube</a>
+                <a href="https://www.instagram.com/krkitbilisim/"><img src="ig.png" width="20px" height="20px" alt="Instagram Icon"> Instagram</a>
+                <a href="https://www.linkedin.com/in/kayra-usta-a45761252/"><img src="in.png" width="20px" height="20px" alt="LinkedIn Icon"> LinkedIn</a>
+                <a href="cv.html"><img src="paper.png" width="20px" height="20px" alt="CV Icon"> CV</a>
+                <a href="https://krkit.com/"><img src="k.jpg" width="20px" height="20px" alt="Krkit Icon"> Krkit.com</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="blog-posts">
+            <article>
+                <div class="blog-post-content">
+                    <img src="hb.png" width="380px" height="270px" class="icon">
+                    <h2>PHP ile Hukuk Bürosu Web Sitesi</h2>
+                </div>
+                <section class="code-area">
+                    <h3>index.html</h3>
+                    <button onclick="copyCode()">Kodu Kopyala</button>
+                    <pre>
+                        <code>
+                            &lt;!DOCTYPE html&gt;
+                            &lt;html&gt;
+                            &lt;head&gt;
+                                &lt;meta charset=&quot;utf-8&quot;&gt;
+                                &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+                                &lt;title&gt;Kayra Hukuk&lt;/title&gt;
+                                &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;style.css&quot;&gt;
+                            &lt;/head&gt;
+                            &lt;body&gt;
+                            
+                                &lt;section id=&quot;menu&quot;&gt;
+                                    &lt;div id=&quot;logo&quot;&gt;&lt;i&gt;&lt;b&gt;&lt;img src=&quot;source/logo.png&quot; width=&quot;480px&quot; height=&quot;110px&quot;&gt;&lt;/b&gt;&lt;/i&gt;&lt;/div&gt;
+                                    &lt;nav&gt;
+                                        &lt;a href=&quot;#menu&quot;&gt;&lt;img src=&quot;source/home.png&quot; width=&quot;25px&quot; height=&quot;25px&quot;&gt;&amp;nbsp Anasayfa&lt;/a&gt;
+                                        &lt;a href=&quot;#hakkimizda&quot;&gt;&lt;img src=&quot;source/info.png&quot; width=&quot;25px&quot; height=&quot;25px&quot;&gt;&amp;nbsp Hakkımızda&lt;/a&gt;
+                                        &lt;a href=&quot;#egitimler&quot;&gt;&lt;img src=&quot;source/law.png&quot; width=&quot;25px&quot; height=&quot;25px&quot;&gt;&amp;nbsp Alanlar&lt;/a&gt;
+                                        &lt;a href=&quot;#ekip&quot;&gt;&lt;img src=&quot;source/human.png&quot; width=&quot;25px&quot; height=&quot;25px&quot;&gt;&amp;nbsp Ekibimiz&lt;/a&gt;
+                                        &lt;a href=&quot;#iletisim&quot;&gt;&lt;img src=&quot;source/loc.png&quot; width=&quot;25px&quot; height=&quot;25px&quot;&gt;&amp;nbsp Adres&lt;/a&gt;
+                                        &lt;a href=&quot;giris.php&quot;&gt;&lt;img src=&quot;source/key.png&quot; width=&quot;25px&quot; height=&quot;25px&quot;&gt;&amp;nbsp Giriş Yap&lt;/a&gt;
+                                    &lt;/nav&gt;
+                                &lt;/section&gt>
+                            
+                                &lt;section id=&quot;anasayfa&quot;&gt;
+                                    &lt;div id=&quot;black&quot;&gt;
+                                        
+                                    &lt;/div&gt;
+                                    &lt;div id=&quot;icerik&quot;&gt;
+                            
+                                        &lt;h2&gt;Kayra Hukuk Bürosu&lt;/h2&gt;
+                                        &lt;hr width=300 align=&quot;left&quot;&gt;
+                                        &lt;p&gt;
+                            
+                                            Bugün, geniş bir çerçevede hukuk hizmeti veren  Kayra Hukuk Bürosu, en verimli şekilde çözüme ulaşmak amacıyla çalışma alanlarına göre uzmanlaşmış  departmanlara ayrılarak organize olmuştur. Kayra Hukuk Bürosu, farklı hukuk alanlarında uzmanlaşmış bir danışman kadrosuna  ve dünya dinamizmini yansıtan güçlü bir müvekkil ağına sahiptir
+                                        &lt;/p&gt;
+                                    &lt;/div&gt;
+                                &lt;/section&gt;
+                                &lt;section id=&quot;hakkimizda&quot;&gt;
+                                    
+                                    &lt;h3&gt;Hakkımızda&lt;/h3&gt;
+                            
+                                    &lt;div class=&quot;container&quot;&gt;
+                                        &lt;div id=&quot;sol&quot;&gt;
+                                            &lt;h5 id=&quot;h5sol&quot;&gt;Türkiye’nin gelişen ekonomisi ve bu kapsamda çeşitlenen hizmet taleplerine cevap verebilmek amacı ile Kayra Hukuk Bürosu bünyesinde,
+                                             konusunda uzman avukatlardan oluşan departmanlar bulunmaktadır.&lt;/h5&gt;
+                                        &lt;/div&gt;
+                                        &lt;div id=&quot;sag&quot;&gt;
+                                            &lt;span&gt;U&lt;/span&gt;
+                                            &lt;p&gt;
+                                                Uyum çalışmalarına başlamamış olan müvekkillerimize uyum sürecine ilişkin hizmet vermekteyiz. Kişisel verilerin korunması hukukunun gereksinimleri doğrultusunda; 
+                                                uyum sürecini birlikte yürütmediğimiz müvekkillerimizin, uyum sonrası mevzuata uygunluklarının denetlenmesi, bu doğrultuda risk analizlerinin yapılması ve yönetişim çalışmalarının ölçümlenmesi, 
+                                                ilgili kişi başvuru süreçlerinin yönetilmesi çalışmalarını sürdürmekteyiz. Kişisel Verilerin Korunması Kurulu tarafından hakkında idari para cezası ve/veya idari yaptırım uygulanan gerçek ve/veya tüzel kişilerin itiraz ve dava süreçlerini yürütmekteyiz.
+                                            &lt;/p&gt;
+                                        &lt;/div&gt;
+                                        &lt;img src=&quot;source/img7.jpg&quot; width=&quot;1000px&quot; alt=&quot;&quot; class=&quot;img-fluid mt100&quot;&gt;
+                                        &lt;p id=&quot;pson&quot;&gt;6698 sayılı Kişisel Verilerin Korunması Kanunu ve ilgili mevzuat uyarınca verdiğimiz KVK hizmeti; uyum süreci, uyum sürecinin denetlenmesi, ilgili kişi başvuru süreçlerinin yönetilmesi, Kurul savunması ve Kurul′un uyguladığı yaptırımlara karşı
+                                         ilgili yargı merciinde itiraz ve dava süreçlerinin yürütülmesini kapsamaktadır.&lt;/p&gt;
+                                    &lt;/div&gt;
+                                &lt;/section&gt>
+                            
+                            &lt;section id=&quot;egitimler&quot;&gt;
+                                &lt;div class=&quot;container&quot;&gt;
+                            
+                                    &lt;h3&gt;Alanlar&lt;/h3&gt;
+                            
+                                    &lt;div&gt;
+                            
+                                        &lt;div class=&quot;card&quot;&gt;
+                                        &lt;img src=&quot;source/g1.jpg&quot; alt=&quot;&quot; class=&quot;img-fluid&quot;&gt;
+                                        &lt;h5 class=&quot;baslikcard&quot;&gt;Gayrimenkul Hukuku&lt;/h5&gt;
+                                        
+                                        &lt;/div&gt;
+                            
+                                        &lt;div class=&quot;card&quot;&gt;
+                                        &lt;img src=&quot;source/g2.jpg&quot; alt=&quot;&quot; class=&quot;img-fluid&quot;&gt;
+                                        &lt;h5 class=&quot;baslikcard&quot;&gt;Bilişim Hukuku&lt;/h5&gt;
+                                        
+                                        &lt;/div&gt;
+                            
+                                        &lt;div class=&quot;card&quot;&gt;
+                                        &lt;img src=&quot;source/g3.jpg&quot; alt=&quot;&quot; class=&quot;img-fluid&quot;&gt;
+                                        &lt;h5 class=&quot;baslikcard&quot;&gt;Telif Hukuku&lt;/h5&gt;
+                                        
+                                        
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/section&gt;
+                            &lt;section id=&quot;ekip&quot;&gt;
+                                &lt;div class=&quot;container&quot;&gt;
+                                    &lt;h3 id=&quot;ekiph3&quot;&gt;Ekip&lt;/h3&gt;
+                                    &lt;div class=&quot;sutun-sol-sag&quot;&gt;
+                                        &lt;img src=&quot;source/kayra.jpg&quot;alt=&quot;&quot;class=&quot;img-fluid oval&quot;&gt;
+                                        &lt;h4 class=&quot;ekipisim&quot;&gt;Tamer Gülünoğlu&lt;/h4&gt;
+                                        &lt;p class=&quot;ekipp&quot;&gt;Kurucu / Kıdemli Avukat&lt;/p&gt;
+                                    &lt;/div&gt;
+                                            &lt;div class=&quot;sutun-sol-sag&quot;&gt;
+                                        &lt;img src=&quot;source/a2.jpg&quot;alt=&quot;&quot;class=&quot;img-fluid oval&quot;&gt;
+                                        &lt;h4 class=&quot;ekipisim&quot;&gt;Büşra Çehreli&lt;/h4&gt;
+                                        &lt;p class=&quot;ekipp&quot;&gt;Kıdemli Yönetici Avukat&lt;/p&gt;
+                                    &lt;/div&gt;
+                                            &lt;div class=&quot;sutun-sol-sag&quot;&gt;
+                                        &lt;img src=&quot;source/a3.jpg&quot;alt=&quot;&quot;class=&quot;img-fluid oval&quot;&gt;
+                                        &lt;h4 class=&quot;ekipisim&quot;&gt;Hasan Küçük&lt;/h4&gt;
+                                        &lt;p class=&quot;ekipp&quot;&gt;Kıdemli Avukat&lt;/p&gt;
+                                    &lt;/div&gt;
+                                            &lt;div class=&quot;sutun-sol-sag&quot;&gt;
+                                        &lt;img src=&quot;source/a4.jpg&quot;alt=&quot;&quot;class=&quot;img-fluid oval&quot;&gt;
+                                        &lt;h4 class=&quot;ekipisim&quot;&gt;Özge Kıyıltas&lt;/h4&gt;
+                                        &lt;p class=&quot;ekipp&quot;&gt;İcra Departmanı Avukatı&lt;/p&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            
+                            &lt;/section&gt;
+                            &lt;section id=&quot;iletisim&quot;&gt;
+                            
+                                &lt;h3 id=&quot;h3iletisim&quot;&gt;İletişim&lt;/h3&gt;
+                                &lt;div class=&quot;container&quot;&gt;
+                                    &lt;div id=&quot;iletisimopak&quot;&gt;
+                                        &lt;div id=&quot;formgroup&quot;&gt;
+                                            &lt;div id=&quot;solform&quot;&gt;
+                                                &lt;input type=&quot;text&quot; name=&quot;isim&quot; placeholder=&quot;Ad Soyad&quot; required class=&quot;form-control&quot;&gt;
+                                                &lt;input type=&quot;tel&quot; name=&quot;tel&quot; placeholder=&quot;Telefon Numarası&quot; required class=&quot;form-control&quot;&gt;
+                                            &lt;/div&gt;
+                                            &lt;div id=&quot;sagform&quot;&gt;
+                                                &lt;input type=&quot;text&quot; name=&quot;mail&quot; placeholder=&quot;E-posta Adresiniz&quot; required class=&quot;form-control&quot;&gt;
+                                                &lt;input type=&quot;text&quot; name=&quot;konu&quot; placeholder=&quot;Konu Başlığı&quot; required class=&quot;form-control&quot;&gt;
+                                            &lt;/div&gt;
+                                            &lt;textarea name=&quot;mesaj&quot; placeholder=&quot;Mesajınızı Yazınız&quot; required class=&quot;form-control&quot;&gt;&lt;/textarea&gt;
+                                            &lt;input type=&quot;submit&quot; value=&quot;Gönder&quot;&gt;
+                                        &lt;/div&gt;
+                                        &lt;div id=&quot;adres&quot;&gt;
+                                            &lt;h4 id=&quot;adresbaslik&quot;&gt;Adres :&lt;/h4&gt;
+                                            &lt;p class=&quot;adresp&quot;&gt;Çukur Mah. Dervişoğlu Sk. Hoca İşhanı Apt. No: 11 Kat: 3 Daire: 7 Karşıyaka / İZMİR&lt;/p&gt;
+                                            &lt;p class=&quot;adresp&quot;&gt;info@kayrahukuk.com&lt;/p&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/section&gt;
+                            
+                            &lt;footer&gt;
+                                &lt;div id=&quot;copyright&quot;&gt;2024 Tüm Hakları Saklıdır&gt;
+                            &lt;/footer&gt;
+                            &lt;/body&gt;
+                            &lt;/html&gt;
+                        </code>
+                    </pre>
+                </section>
+                <button class="back-button" onclick="history.back()">Geri Dön</button>
+                <script>
+                function copyCode() {
+                    // Kod alanını seçin
+                    var codeArea = document.querySelector('.code-area pre code');
+                    
+                    // Seçili metni kopyalayın
+                    var range = document.createRange();
+                    range.selectNode(codeArea);
+                    window.getSelection().removeAllRanges();
+                    window.getSelection().addRange(range);
+                    
+                    try {
+                        document.execCommand('copy');
+                        alert('Kod başarıyla kopyalandı!');
+                    } catch (err) {
+                        alert('Kod kopyalanamadı. Lütfen manuel olarak kopyalayın.');
+                    }
+                    
+                    // Seçimi kaldır
+                    window.getSelection().removeAllRanges();
+                }
+                </script>
+                
+                
+          
+        </div>
+
+       
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="kayra.png" alt="Logo" width="200px" height="60px">
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Anasayfa</a>
+                <a href="cv.html">CV</a>
+                <a href="https://krkit.com/">Web Sitesi İçin</a>
+                <a href="https://www.youtube.com/@kayrausta8728">Youtube'daki Videolar</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.youtube.com/@kayrausta8728"><img src="yt.png" alt="Youtube" width="20px" height="20px"></a>
+                <a href="https://www.instagram.com/krkitbilisim/"><img src="ig.png" alt="Instagram" width="20px" height="20px"></a>
+                <a href="https://www.linkedin.com/in/kayra-usta-a45761252/"><img src="in.png" alt="LinkedIn" width="20px" height="20px"></a>
+               
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Kayra Halil Usta - Tüm Hakları Saklıdır
+        </div>
+    </footer>
+</body>
+</html>

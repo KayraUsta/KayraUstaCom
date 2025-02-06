@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="kbas.png" type="image/x-icon">
+    <title>Kayra Halil Usta - Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+/*Header Tasarımı*/
+        header {
+    background-color: #808080; /* Navbar daha koyu gri */
+    padding: 0.5em 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between; /* Logo solda, linkler sağda */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo img {
+    max-height: 100px;
+
+}
+
+.nav-links {
+    display: flex;
+    gap: 2em;
+}
+
+.nav-links a {
+    color: #292929; 
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.nav-links a img {
+    margin-right: 0.5em;
+}
+
+.nav-links a:hover {
+    color: #555;
+}
+/*Header Tasarımı*/
+
+/*Footer Tasarımı*/
+footer {
+    background-color: #292929; /* Daha koyu bir footer */
+    color: white;
+    padding: 2em 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-logo img {
+    max-height: 60px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 2em;
+}
+
+.footer-links a {
+    color: #ccc;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    margin-left: -2%;
+}
+
+.footer-links a:hover {
+    color: #808080; /* Hover renginde yeşil efekt */
+}
+
+.footer-social {
+    display: flex;
+    gap: 1em;
+}
+
+.footer-social a img {
+    transition: opacity 0.3s ease;
+}
+
+.footer-social a:hover img {
+    opacity: 0.7;
+}
+
+.footer-bottom {
+    margin-top: 1em;
+    font-size: 0.9em;
+    color: #888;
+}
+/*Footer Tasarımı*/
+
+        main {
+            display: flex;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            flex: 1;
+            box-sizing: border-box;
+        }
+
+        .blog-posts {
+            flex: 0.7;
+            margin-right: 5%;
+        }
+/*Sağ Bölüm Tasarımı*/
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  color: #333;
+  padding: 10px 15px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #808080;
+  color: #fff;
+}
+
+button.active {
+  background-color: #808080;
+  color: #fff;
+  border-color: #808080;
+}
+
+button:disabled {
+  background-color: #ddd;
+  color: #999;
+  cursor: not-allowed;
+}
+
+        .about-me {
+            flex: 0.3;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        article {
+            margin-bottom: 20px;
+        }
+
+        .profile-image {
+            margin-right: 20px;
+        }
+
+        .about-me p {
+            margin-left: 20px;
+        }
+
+        .about-me p img {
+            margin-right: 5px;
+        }
+
+        .about-me p:nth-child(2),
+        .about-me p:nth-child(3) {
+            color: #A9A9A9;
+        }
+        .about-me p:nth-child(4) {
+            color: #696969;
+        }
+        .bosyazi {
+            color: #696969;
+        }
+        @media screen and (max-width: 720px) {
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    header {
+        background-color: #808080;
+        padding: 0.5em 0;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .logo img {
+        max-height: 80px;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        align-items: center;
+    }
+
+    .nav-links a {
+        font-size: 1em;
+        text-align: center;
+    }
+
+    footer {
+        background-color: #292929;
+        color: white;
+        padding: 1.5em 0;
+        text-align: center;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5em;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .footer-logo img {
+        max-height: 50px;
+    }
+
+    .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        align-items: center;
+    }
+
+    .footer-links a {
+        font-size: 0.9em;
+    }
+
+    main {
+        display: block;
+        max-width: 100%;
+        margin: 10px;
+        padding: 15px;
+        background-color: white;
+    }
+
+    .blog-posts {
+        flex: none;
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .pagination {
+        flex-direction: column;
+        margin-top: 5px;
+    }
+
+    button {
+        padding: 8px 12px;
+        margin: 5px 0;
+    }
+
+    .about-me {
+        flex: none;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    article {
+        margin-bottom: 15px;
+    }
+
+    .profile-image {
+        margin-right: 10px;
+    }
+
+    .about-me p {
+        margin-left: 10px;
+    }
+
+    .about-me p:nth-child(2),
+    .about-me p:nth-child(3) {
+        font-size: 0.9em;
+    }
+
+    .about-me p:nth-child(4) {
+        font-size: 1em;
+    }
+    .blog-posts img{
+        height: auto;
+        width: 100%;
+    }
+    .profile-image{
+        height: auto;
+        width: 100%;
+    }
+    
+}
+
+/*Sağ Bölüm Tasarımı*/
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="kayra.png" width="320px" height="100px" alt="Logo">
+            </div>
+            <div class="nav-links">
+                <a href="https://www.youtube.com/@kayrausta8728"><img src="yt.png" width="20px" height="20px" alt="Youtube Icon"> Youtube</a>
+                <a href="https://www.instagram.com/krkitbilisim/"><img src="ig.png" width="20px" height="20px" alt="Instagram Icon"> Instagram</a>
+                <a href="https://www.linkedin.com/in/kayra-usta-a45761252/"><img src="in.png" width="20px" height="20px" alt="LinkedIn Icon"> LinkedIn</a>
+                <a href="cv.html"><img src="paper.png" width="20px" height="20px" alt="CV Icon"> CV</a>
+                <a href="https://krkit.com/"><img src="k.jpg" width="20px" height="20px" alt="Krkit Icon"> Krkit.com</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="blog-posts">
+           
+
+            <article>
+                <img src="overloads.png" width="380px" height="270px" class="icon">
+                <h2>C# Forms ve Veritabanı ile Overloads Konusu üzerinde Form Uygulaması </h2>
+                <p>
+                    C# Windows Forms ve veritabanı kullanarak Overloads (Aşırı Yükleme) konusunu uygulayan bir form uygulaması geliştirmek, kullanıcıların belirli işlevlerin farklı parametre setleriyle nasıl kullanılabileceğini anlamalarına yardımcı olur. Aşırı yükleme, aynı isimli birden fazla yöntemin (method) farklı parametre listeleri ile tanımlanmasıdır.</p>
+                <a href="overloadsform.html">Devamını Oku</a>
+            </article>
+            <br>
+       
+        </div>
+
+        <div class="about-me">
+            <img class="profile-image" src="k1.jpg" height="200px" width="300px">
+            <p><img src="tel.png" width="20px" height="20px">+90 546-580-35-21</p>
+            <p><img src="mail.png" width="20px" height="20px">kayrausta04@gmail.com</p>
+            <p>
+                Merhaba, ben Kayra Halil Usta. Kırklareli Üniversitesinde Bilgisayar Programcılığı, Eskişehir
+                Anadolu Üniversitesinde Web Tasarımı Ve Kodlama okuyorum. 4 Ekim 2004 İstanbul doğumluyum. Okulda
+                kendim ve arkadaşlarımın projelerini ve araştırmalarını bilgisayar ile ilgili bölüm okuyan ve bilgisayar 
+                ile ilgilenen herkese yardımcı olması amacı ile paylaşıyorum. Ayrıca yine üniversiten arkadaşlarla kurduğumuz KRKIT.COM adresinde ve İnstagram sayfasında
+                her türlü web hizmetini veriyoruz. Detaylı bilgi için ilgili linklerden ulaşabilirsiniz.
+            <br><br>
+            <br><br>
+            <br><br>
+            <h3>&nbsp &nbsp &nbsp Bilgisayarla İlgili İlginç Bilgiler;</h2>
+            <p class="bosyazi">
+                <img class="profile-image" src="qklav.jpg" height="200px" width="300px">
+                <br><br>
+                <b>Q klavye insanların daha yavaş yazması için geliştirilmiştir:</b>
+                1860'larda mekanik daktilolarında sıkışma sorunlarını azaltmayı hedefliyordu. Hızlı yazma sırasında harflerin birbirine yakın olan tuşlar nedeniyle daktilo kolları birbirine çarpıyordu. Bu yüzden sık kullanılan harfler, kolların birbirine çarpmasını önlemek için bilinçli olarak uzak yerlere yerleştirildi. Sonuç olarak, insanlar daha yavaş yazmak zorunda kaldı.
+            <br><br>
+            <br><br>
+            <img class="profile-image" src="mavi.webp" height="200px" width="300px">
+                <br><br>
+                <b>Bilgisayarda birşeyler yazmaya başladığımızda nefes alış verişimiz sıklaşır:</b>
+                Bu, screen apnea olarak bilinen bir durumdur. Özellikle uzun süre bilgisayar başında çalışan veya yazı yazan kişilerde, bu alışkanlık stres, yoğun dikkat ve fiziksel hareketsizliğin bir sonucu olarak ortaya çıkar.
+            <br><br>
+            <br><br>
+            <img class="profile-image" src="creeper.jpg" height="200px" width="300px">
+                <br><br>
+                <b>Creeper Programı:</b>
+                Discovery tarafından belirtildiği gibi, genellikle ilk virüs olarak değerlendirilen Creeper programı, 1971'de BBN'den Bob Thomas tarafından oluşturuldu.Creeper'ın kötü bir amacı yoktu ve yalnızca basit bir mesaj gösteriyordu: "BEN CREEPER. SIKIYORSA YAKALA!" 
+            <br><br>
+            <br><br>
+            <img class="profile-image" src="kuru.jpg" height="200px" width="300px">
+                <br><br>
+                <b>İnsanlar normalde bir dakikada 20 kez gözlerini kırparlerken bu rakam bilgasayar kullanırken sadece 7’dir:</b>
+                Bu durumu önlemek için gözleri düzenli olarak kırpmak, belirli aralıklarla ekranın dışına bakmak (örneğin, 20-20-20 kuralı: her 20 dakikada bir, 20 feet (yaklaşık 6 metre) uzaklıkta bir nesneye 20 saniye bakmak) ve yeterli aydınlatma sağlamak önemlidir.
+
+            </p>
+        </div>
+        
+    </main>
+
+    <div class="pagination">
+       
+        <a href="index.html"><button class="page-btn">1</button></a>
+        <a href="page2.html"><button class="page-btn">2</button></a>
+        <a href="page3.html"><button class="page-btn active">3</button></a>
+       
+      </div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="kayra.png" alt="Logo" width="200px" height="60px">
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Anasayfa</a>
+                <a href="cv.html">CV</a>
+                <a href="https://krkit.com/">Web Sitesi İçin</a>
+                <a href="https://www.youtube.com/@kayrausta8728">Youtube'daki Videolar</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.youtube.com/@kayrausta8728"><img src="yt.png" alt="Youtube" width="20px" height="20px"></a>
+                <a href="https://www.instagram.com/krkitbilisim/"><img src="ig.png" alt="Instagram" width="20px" height="20px"></a>
+                <a href="https://www.linkedin.com/in/kayra-usta-a45761252/"><img src="in.png" alt="LinkedIn" width="20px" height="20px"></a>
+               
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Kayra Halil Usta - Tüm Hakları Saklıdır
+        </div>
+    </footer>
+</body>
+</html>
