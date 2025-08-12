@@ -14,12 +14,4 @@ Amacı, hem yazılım geliştirme sürecini belgelendirmek hem de meraklılara i
 - 📱 **Responsive Tasarım** – Mobil, tablet ve masaüstü uyumu
 - ⚡ **Hızlı ve Optimize** – SEO uyumlu, hızlı yüklenen sayfalar
 
----
 
-## 📥 Kurulum
-
-Bağımlılıkları yüklemek için:
-```bash
-yarn
-# veya
-npm install
