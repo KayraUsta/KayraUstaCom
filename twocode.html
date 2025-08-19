@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="kbas.png" type="image/x-icon">
+    <title>Kayra Halil Usta - Blog</title>
+    <style>
+              body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+/*Header Tasarımı*/
+header {
+    background-color: rgba(50, 50, 50, 0.9); /* Yarı şeffaf koyu gri arka plan */
+    padding: 1em 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Hafif gölge ile derinlik katma */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between; /* Logo solda, linkler sağda */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2em;
+}
+
+.logo img {
+    max-height: 80px; /* Daha küçük ve kompakt logo */
+    height: auto;
+    width: auto;
+}
+
+/* Linklerin yerleşimi ve stilleri */
+.nav-links {
+    display: flex;
+    gap: 1.5em; /* Daha az boşluk */
+}
+
+.nav-links a {
+    color: #fff; /* Beyaz yazı */
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease, transform 0.3s ease; /* Renk ve boyut geçişi */
+}
+
+.nav-links a img {
+    width: 20px;
+    height: 20px;
+    margin-right: 0.5em;
+    filter: brightness(0) invert(1); /* İkonları beyaza çevirme */
+}
+
+.nav-links a[href="https://krkit.com/"] img {
+    filter: none; /* Krkit.com ikonuna beyaz filtre uygulanmayacak */
+}
+
+.nav-links a:hover {
+    color: rgb(170, 170, 170); /* Header'a daha yakın, koyu gri hover rengi */
+    transform: scale(1.05); /* Hafif büyüme efekti */
+}
+/*Header Tasarımı*/
+
+/*Footer Tasarımı*/
+footer {
+    background-color: #292929; /* Daha koyu bir footer */
+    color: white;
+    padding: 2em 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-logo img {
+    max-height: 60px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 2em;
+}
+
+.footer-links a {
+    color: #ccc;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    margin-left: -2%;
+}
+
+.footer-links a:hover {
+    color: #5beb63; /* Hover renginde yeşil efekt */
+}
+
+.footer-social {
+    display: flex;
+    gap: 1em;
+}
+
+.footer-social a img {
+    transition: opacity 0.3s ease;
+}
+
+.footer-social a:hover img {
+    opacity: 0.7;
+}
+
+.footer-bottom {
+    margin-top: 1em;
+    font-size: 0.9em;
+    color: #888;
+}
+/*Footer Tasarımı*/
+
+        main {
+            display: flex;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            flex: 1;
+            box-sizing: border-box;
+        }
+
+/*Sağ Bölüm Tasarımı*/
+        .about-me {
+            flex: 0.3;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        article {
+            margin-bottom: 20px;
+        }
+
+        .profile-image {
+            margin-right: 20px;
+        }
+
+        .about-me p {
+            margin-left: 20px;
+        }
+
+        .about-me p img {
+            margin-right: 5px;
+        }
+
+        .about-me p:nth-child(2),
+        .about-me p:nth-child(3) {
+            color: #A9A9A9;
+        }
+        .about-me p:nth-child(4) {
+            color: #696969;
+        }
+        .bosyazi {
+            color: #696969;
+        }
+/*Sağ Bölüm Tasarımı*/
+        .blog-posts {
+            flex: 1;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-sizing: border-box;
+        }
+
+        .code-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .code-area,
+        .code-area1 {
+            width: 100%;
+            max-width: 800px;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        .code-area h3,
+        .code-area1 h3 {
+            margin-bottom: 15px;
+        }
+
+        .code-area pre,
+        .code-area1 pre {
+            background-color: #333;
+            color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        .code-area code,
+        .code-area1 code {
+            display: block;
+            white-space: pre;
+        }
+
+        .blog-post-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .blog-post-content .icon {
+            margin-bottom: 10px;
+        }
+        /* General button style */
+.back-button {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 30px;
+  color: #333;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+  margin-top: 2%;
+}
+
+/* Hover effect for the button */
+.back-button:hover {
+  background-color: #e0e0e0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  color: #333;
+}
+
+/* Active effect for when the button is clicked */
+.back-button:active {
+  background-color: #d0d0d0;
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Optional styling for focus (keyboard navigation) */
+.back-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+}
+@media screen and (max-width: 720px) {
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        gap: 1em;
+    }
+    
+    .nav-links a {
+        font-size: 1em;
+    }
+
+    footer {
+        background-color: #292929;
+        color: white;
+        padding: 1.5em 0;
+        text-align: center;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5em;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .footer-logo img {
+        max-height: 50px;
+    }
+
+    .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        align-items: center;
+    }
+
+    .footer-links a {
+        font-size: 0.9em;
+    }
+    main {
+        flex-direction: column;
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .about-me {
+        width: 100%;
+        margin-bottom: 20px; /* İçeriği alta almak için boşluk ekliyoruz */
+    }
+
+    .blog-posts {
+        max-width: 100%;
+        margin: 10px auto;
+        padding: 15px;
+    }
+
+    .code-container {
+        flex-direction: column; /* Kod alanlarını alt alta sıralıyoruz */
+        gap: 10px; /* Kutu elemanları arasındaki boşluk küçültüldü */
+    }
+
+    .code-area,
+    .code-area1 {
+        margin-top: 10px;
+        padding: 15px;
+    }
+
+    .back-button {
+        font-size: 14px; /* Butonun boyutunu küçültüyoruz */
+        padding: 10px 20px;
+    }
+
+    .blog-post-content {
+        text-align: left; /* Küçük ekranlarda sol hizalıyoruz */
+    }
+
+    .blog-post-content .icon {
+        margin-bottom: 5px; /* Görüntü ve başlık arasındaki boşluğu azaltıyoruz */
+    }
+
+    .about-me p {
+        margin-left: 0; /* Küçük ekranlarda pading'leri kaldırıyoruz */
+    }
+    .blog-posts img{
+        height: auto;
+        width: 100%;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="kayra.png" width="320px" height="100px" alt="Logo">
+            </div>
+            <div class="nav-links">
+                <a href="https://www.youtube.com/@kayrausta8728"><img src="yt.png" width="20px" height="20px" alt="Youtube Icon"> Youtube</a>
+                <a href="https://www.instagram.com/krkitbilisim/"><img src="ig.png" width="20px" height="20px" alt="Instagram Icon"> Instagram</a>
+                <a href="https://www.linkedin.com/in/kayra-usta-a45761252/"><img src="in.png" width="20px" height="20px" alt="LinkedIn Icon"> LinkedIn</a>
+                <a href="cv.html"><img src="paper.png" width="20px" height="20px" alt="CV Icon"> CV</a>
+                <a href="https://krkit.com/"><img src="k.jpg" width="20px" height="20px" alt="Krkit Icon"> Krkit.com</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="blog-posts">
+            <article>
+                <div class="blog-post-content">
+                    <img src="hb.png" width="380px" height="270px" class="icon">
+                    <h2>PHP ile Hukuk Bürosu Web Sitesi</h2>
+                </div>
+                <div class="code-container">
+                    <section class="code-area">
+                        <h3>admin.php</h3>
+                        <button onclick="copyCode('code-area')">Kodu Kopyala</button>
+                        <pre>
+                            <code>
+                                &lt;?php
+                                session_start();
+                                ?&gt;
+                                
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                &lt;head&gt;
+                                    &lt;meta charset="utf-8"&gt;
+                                    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+                                    &lt;title&gt;Kayra Hukuk&lt;/title&gt;
+                                    &lt;link rel="stylesheet" type="text/css" href="style.css"&gt;
+                                &lt;/head&gt;
+                                &lt;body&gt;
+                                &lt;style&gt;
+                                
+                                table {
+                                    width: 100%;
+                                    border-collapse: collapse;
+                                    margin-bottom: 20px;
+                                }
+                                
+                                th, td {
+                                    padding: 12px;
+                                    text-align: left;
+                                    border: 1px solid #282830;
+                                }
+                                
+                                th {
+                                    background-color: #282830;
+                                    color: #fff;
+                                }
+                                
+                                tr:nth-child(even) {
+                                    background-color: #f2f2f2;
+                                }
+                                
+                                &lt;/style&gt;
+                                    &lt;section id="menu"&gt;
+                                        &lt;div id="logo"&gt;&lt;i&gt;&lt;b&gt;&lt;img src="source/logo.png" width="450px" height="150px"&gt;&lt;/b&gt;&lt;/i&gt;&lt;/div&gt;
+                                    &lt;/section&gt;
+                                    &lt;style&gt;
+                                        table, td {
+                                            border: 1px solid #282830;
+                                        }
+                                    &lt;/style&gt;
+                                
+                                    &lt;h2&gt;Randevu Listesi&lt;/h2&gt;
+                                    &lt;table&gt;
+                                        &lt;tr&gt;
+                                            &lt;th&gt;Ad Soyad&lt;/th&gt;
+                                            &lt;th&gt;Tarih&lt;/th&gt;
+                                            &lt;th&gt;Avukat İsmi&lt;/th&gt; 
+                                            &lt;th&gt;Telefon Numarası&lt;/th&gt; 
+                                            &lt;th&gt;Randevu Sil&lt;/th&gt;            
+                                        &lt;/tr&gt;
+                                        &lt;?php
+                                        include "randevubaglan.php";
+                                
+                                        // Kullanıcıları listeleme sorgusu
+                                        $sql = "SELECT * FROM randevu";
+                                        $result = $db->query($sql);
+                                
+                                        if ($result !== false) {
+                                            while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                                                echo "&lt;tr&gt;";
+                                                echo "&lt;td&gt;" . $row["user_name"] . "&lt;/td&gt;";
+                                                echo "&lt;td&gt;" . $row["user_date"] . "&lt;/td&gt;";
+                                                echo "&lt;td&gt;" . $row["user_law"] . "&lt;/td&gt;";
+                                                echo "&lt;td&gt;" . $row["user_alan"] . "&lt;/td&gt;";
+                                              if ($_SERVER['REQUEST_METHOD'] == "POST") {
+                                    $username = $_POST['user_name'];
+                                    $sqlsil = "DELETE FROM randevu WHERE user_name='$username'";
+                                    $resultsil = $db->query($sqlsil);
+                                    if ($resultsil) {
+                                        header("Location: admin.php");
+                                        exit();
+                                    }
+                                }
+                                
+                                echo "&lt;td&gt;" .
+                                    "&lt;form action='admin.php' method='POST'&gt; <!-- Specify method='POST' here -->" .
+                                    "&lt;input type='text' name='user_name' placeholder='Silmek İçin Ad Soyad Giriniz' required&gt;" .
+                                    "&lt;button type='submit' name='sil' style='width: 50px; height: 20px;'&gt;Sil&lt;/button&gt;" .
+                                    "&lt;/form&gt;" . "&lt;/td&gt;";
+                                
+                                
+                                                echo "&lt;/tr&gt;";
+                                            }
+                                        } else {
+                                            echo "&lt;tr&gt;&lt;td colspan='4'&gt;Kullanıcı bulunamadı.&lt;/td&gt;&lt;/tr&gt;";
+                                        }
+                                
+                                        // Close the database connection
+                                        $db = null;
+                                        ?&gt;
+                                    &lt;/table&gt;
+                                     &lt;h2&gt;Kullanıcı Listesi&lt;/h2&gt;
+                                    &lt;table&gt;
+                                        &lt;tr&gt;
+                                            &lt;th&gt;Ad Soyad&lt;/th&gt;
+                                            &lt;th&gt;Şifre&lt;/th&gt;             
+                                        &lt;/tr&gt;
+                                        &lt;?php
+                                        include "baglan.php";
+                                
+                                        // Kullanıcıları listeleme sorgusu
+                                        $sql = "SELECT * FROM users";
+                                        $result = $db->query($sql);
+                                
+                                        if ($result !== false) {
+                                            while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                                                echo "&lt;tr&gt;";
+                                                echo "&lt;td&gt;" . $row["user_name"] . "&lt;/td&gt;";
+                                                echo "&lt;td&gt;" . $row["user_password"] . "&lt;/td&gt;";
+                                                echo "&lt;/tr&gt;";
+                                            }
+                                        } else {
+                                            echo "&lt;tr&gt;&lt;td colspan='4'&gt;Kullanıcı bulunamadı.&lt;/td&gt;&lt;/tr&gt;";
+                                        }
+                                
+                                        // Close the database connection
+                                        $db = null;
+                                        ?&gt;
+                                    &lt;/table&gt;
+                                &lt;/body&gt;
+                                &lt;/html&gt;
+                                
+ </code>
+                        </pre>
+                    </section>
+                    <section class="code-area1">
+                        <h3>giris.php</h3>
+                        <button onclick="copyCode('code-area1')">Kodu Kopyala</button>
+                        <pre>
+                            <code>
+                                &lt;?php
+                                session_start();
+                                $admin_kadi="admin";
+                                $admin_sifre="admin";
+                                ?&gt;
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                &lt;head&gt;
+                                    &lt;meta charset="utf-8"&gt;
+                                    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+                                    &lt;title&gt;Kayra Hukuk&lt;/title&gt;
+                                    &lt;link rel="stylesheet" type="text/css" href="girisstyle.css"&gt;
+                                &lt;/head&gt;
+                                &lt;body&gt;
+                                 &lt;?php
+                                if (isset($_SESSION['admin'])) {
+                                ?&gt;
+                                &lt;?php   
+                                }else {
+                                
+                                if ($_POST) {
+                                    $kadi=strip_tags($_POST['username']);
+                                    $ksifre=strip_tags($_POST['password']);
+                                if ($admin_kadi==$kadi || $admin_sifre==$ksifre){
+                                    header('Refresh:2; admin.php');
+                                }
+                                }else{
+                                 ?&gt;
+                                 &lt;style&gt;
+                                        body {
+                                            margin: 0;
+                                            padding: 0;
+                                        }
+                                
+                                        .res {
+                                            display: flex;
+                                            justify-content: center;
+                                            align-items: center;
+                                            height: 40vh;
+                                        }
+                                
+                                        .img1 {
+                                            width: 40%;
+                                            height: auto;
+                                        }
+                                    &lt;/style&gt;
+                                    &lt;div class="res"&gt;
+                                        &lt;img class="img1" src="source/logo.png" width="400px" height="150px" alt="Logo"&gt;
+                                    &lt;/div&gt;
+                                &lt;div class="login"&gt;
+                                    &lt;div class="login-screen"&gt;
+                                        &lt;div class="app-title"&gt;
+                                            &lt;h1&gt;Giriş Yap&lt;/h1&gt;
+                                        &lt;/div&gt;
+                                        &lt;form action="islem.php" method="post"&gt;
+                                            &lt;div class="login-form"&gt;
+                                                &lt;div class="control-group"&gt;
+                                                    &lt;input type="text" name="username" class="login-field" placeholder="Kullanıcı adı" id="login-name"&gt;
+                                                    &lt;label class="login-field icon fui-user" for="login-pass"&gt;&lt;/label&gt;
+                                                &lt;/div&gt;
+                                                    &lt;div class="control-group"&gt;
+                                                        &lt;input type="password" name="password" class="login-field" placeholder="Şifre" id="login-pass"&gt;
+                                                        &lt;label class="login-field icon fui-user" for="login-pass"&gt;&lt;/label&gt;
+                                                    &lt;/div&gt;
+                                                &lt;/div&gt;
+                                                        &lt;button href="randevu.php" name="giris" class="btn btn-primary btn-large btn-block"&gt;Giriş Yap&lt;/button&gt;
+                                        &lt;/form&gt;
+                                            &lt;a href="kayit.php"&gt;&lt;button class="btn btn-primary btn-large btn-block"&gt;Kayıt Ol&lt;/button&gt;&lt;/a&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                                &lt;?php 
+                                 }
+                                }
+                                ?&gt;
+                                &lt;/body&gt;
+                                &lt;/html&gt;
+                                
+                            </code>
+                        </pre>
+                    </section>
+                    <button class="back-button" onclick="history.back()">Geri Dön</button>
+                </div>
+               
+            </article>
+            
+        </div>
+      
+    </main>
+   
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="kayra.png" alt="Logo" width="200px" height="60px">
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Anasayfa</a>
+                <a href="cv.html">CV</a>
+                <a href="https://krkit.com/">Web Sitesi İçin</a>
+                <a href="https://www.youtube.com/@kayrausta8728">Youtube'daki Videolar</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.youtube.com/@kayrausta8728"><img src="yt.png" alt="Youtube" width="20px" height="20px"></a>
+                <a href="https://www.instagram.com/krkitbilisim/"><img src="ig.png" alt="Instagram" width="20px" height="20px"></a>
+                <a href="https://www.linkedin.com/in/kayra-usta-a45761252/"><img src="in.png" alt="LinkedIn" width="20px" height="20px"></a>
+               
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Kayra Halil Usta - Tüm Hakları Saklıdır
+        </div>
+    </footer>
+
+    <script>
+        function copyCode(codeAreaClass) {
+            var codeElement = document.querySelector('.' + codeAreaClass + ' pre code');
+            var code = codeElement.textContent;
+            navigator.clipboard.writeText(code).then(function() {
+                alert('Kod kopyalandı!');
+            }, function(err) {
+                alert('Kod kopyalanırken bir hata oluştu!');
+            });
+        }
+    </script>
+</body>
+</html>

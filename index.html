@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="kbas.png" type="image/x-icon">
+    <title>Kayra Halil Usta - Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+/* Header Tasarımı */
+header {
+    background-color: rgba(50, 50, 50, 0.9); /* Yarı şeffaf koyu gri arka plan */
+    padding: 1em 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Hafif gölge ile derinlik katma */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between; /* Logo solda, linkler sağda */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2em;
+}
+
+.logo img {
+    max-height: 80px; /* Daha küçük ve kompakt logo */
+    height: auto;
+    width: auto;
+}
+
+/* Linklerin yerleşimi ve stilleri */
+.nav-links {
+    display: flex;
+    gap: 1.5em; /* Daha az boşluk */
+}
+
+.nav-links a {
+    color: #fff; /* Beyaz yazı */
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease, transform 0.3s ease; /* Renk ve boyut geçişi */
+}
+
+.nav-links a img {
+    width: 20px;
+    height: 20px;
+    margin-right: 0.5em;
+    filter: brightness(0) invert(1); /* İkonları beyaza çevirme */
+}
+
+.nav-links a[href="https://krkit.com/"] img {
+    filter: none; /* Krkit.com ikonuna beyaz filtre uygulanmayacak */
+}
+
+.nav-links a:hover {
+    color: rgb(170, 170, 170); /* Header'a daha yakın, koyu gri hover rengi */
+    transform: scale(1.05); /* Hafif büyüme efekti */
+}
+
+/*Footer Tasarımı*/
+footer {
+    background-color: #292929; /* Daha koyu bir footer */
+    color: white;
+    padding: 2em 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-logo img {
+    max-height: 60px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 2em;
+}
+
+.footer-links a {
+    color: #ccc;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    margin-left: -2%;
+}
+
+.footer-links a:hover {
+    color: #808080; /* Hover renginde yeşil efekt */
+}
+
+.footer-social {
+    display: flex;
+    gap: 1em;
+}
+
+.footer-social a img {
+    transition: opacity 0.3s ease;
+}
+
+.footer-social a:hover img {
+    opacity: 0.7;
+}
+
+.footer-bottom {
+    margin-top: 1em;
+    font-size: 0.9em;
+    color: #888;
+}
+/*Footer Tasarımı*/
+
+        main {
+          
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            flex: 1;
+            box-sizing: border-box;
+        }
+
+        .blog-posts {
+            flex: 0.7;
+            margin-right: 5%;
+        
+        }
+/*Sağ Bölüm Tasarımı*/
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  color: #333;
+  padding: 10px 15px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+button:hover {
+  background-color: #808080;
+  color: #fff;
+}
+
+button.active {
+  background-color: #808080;
+  color: #fff;
+  border-color: #808080;
+}
+
+button:disabled {
+  background-color: #ddd;
+  color: #999;
+  cursor: not-allowed;
+}
+
+        .about-me {
+            flex: 0.3;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        article {
+            margin-bottom: 20px;
+        }
+
+        .profile-image {
+            margin-right: 20px;
+        }
+
+        .about-me p {
+            margin-left: 20px;
+        }
+
+        .about-me p img {
+            margin-right: 5px;
+        }
+
+        .about-me p:nth-child(2),
+        .about-me p:nth-child(3) {
+            color: #A9A9A9;
+        }
+        .about-me p:nth-child(4) {
+            color: #696969;
+        }
+        .bosyazi {
+            color: #696969;
+        }
+        .container-orta{
+            display: flex;
+            gap: 20px; /* Elemanlar arası boşluk */
+        }
+/*Sağ Bölüm Tasarımı*/
+button.devam {
+    background-color: #808080; /* Gri arka plan */
+    color: white; /* Beyaz yazı */
+    font-size: 0.9em; /* Daha küçük yazı boyutu */
+    font-weight: 400; /* Normal kalınlıkta yazı */
+    padding: 0.5em 1em; /* Daha dar boşluklar */
+    border: none; /* Kenarlık yok */
+    border-radius: 6px; /* Hafif yuvarlak köşeler */
+    cursor: pointer; /* Tıklanabilir simgesi */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Hover ve tıklama için yumuşak geçiş */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Hafif gölge ile derinlik katma */
+}
+
+/* Hover efekti */
+button.devam:hover {
+    background-color: #696969; /* Hover renginde daha koyu bir gri */
+    transform: translateY(-2px); /* Hover anında hafif yukarı çıkar */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Gölge büyür ve derinlik artar */
+}
+button.devam a {
+    text-decoration: none; /* Alt çizgi yok */
+    color: white; /* Beyaz yazı rengi */
+
+}
+/* Tıklama (aktif) efekti */
+button.devam:active {
+    background-color: #585858; /* Tıklama anında koyu gri */
+    transform: translateY(1px); /* Buton tıklanınca hafifçe aşağı iner */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Gölge küçülür */
+}
+/*Slider*/
+.slider-img {
+    position: relative;
+    overflow: hidden;
+    width: 100%; /* Slider genişliğini main ile eşitliyoruz */
+    margin-bottom: 20px; /* Main ile arasına boşluk ekliyoruz */
+}
+
+.slider-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slider-images img {
+    min-width: 100%;
+    height: auto;
+}
+@media screen and (max-width: 720px) {
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    nav {
+        flex-direction: column;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        gap: 1em;
+    }
+    
+    .nav-links a {
+        font-size: 1em;
+    }
+
+    footer {
+        background-color: #292929;
+        color: white;
+        padding: 1.5em 0;
+        text-align: center;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5em;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .footer-logo img {
+        max-height: 50px;
+    }
+
+    .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        align-items: center;
+    }
+
+    .footer-links a {
+        font-size: 0.9em;
+    }
+    
+    main {
+        display: block;
+        max-width: 100%;
+        margin: 10px;
+        padding: 15px;
+        background-color: white;
+    }
+
+    .blog-posts {
+        flex: none;
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .pagination {
+        flex-direction: column;
+        margin-top: 5px;
+    }
+
+    button {
+        padding: 8px 12px;
+        margin: 5px 0;
+    }
+
+    .about-me {
+        flex: none;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    article {
+        margin-bottom: 15px;
+    }
+
+    .profile-image {
+        margin-right: 10px;
+    }
+
+    .about-me p {
+        margin-left: 10px;
+    }
+
+    .about-me p:nth-child(2),
+    .about-me p:nth-child(3) {
+        font-size: 0.9em;
+    }
+
+    .about-me p:nth-child(4) {
+        font-size: 1em;
+    }
+    .blog-posts img{
+        height: auto;
+        width: 100%;
+    }
+    .profile-image{
+        height: auto;
+        width: 100%;
+    }
+
+/* Pagination Stilleri */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    color: #333;
+    padding: 10px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transform ekleyin */
+}
+
+button:hover {
+    background-color: #808080;
+    color: #fff;
+    transform: scale(1.05); /* Hover sırasında butonun boyutunu artır */
+}
+
+button.active {
+    background-color: #808080;
+    color: #fff;
+    border-color: #808080;
+}
+
+button:disabled {
+    background-color: #ddd;
+    color: #999;
+    cursor: not-allowed;
+}
+.container-orta{
+    display: block;
+}
+}
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="kayra.png" width="320px" height="100px" alt="Logo">
+            </div>
+            <div class="nav-links">
+                <a href="https://www.youtube.com/@kayrausta8728"><img src="yt.png" width="20px" height="20px" alt="Youtube Icon"> Youtube</a>
+                <a href="https://www.instagram.com/krkitbilisim/"><img src="ig.png" width="20px" height="20px" alt="Instagram Icon"> Instagram</a>
+                <a href="https://www.linkedin.com/in/kayra-usta-a45761252/"><img src="in.png" width="20px" height="20px" alt="LinkedIn Icon"> LinkedIn</a>
+                <a href="cv.html"><img src="paper.png" width="20px" height="20px" alt="CV Icon"> CV</a>
+                <a href="https://krkit.com/"><img src="k.jpg" width="20px" height="20px" alt="Krkit Icon"> Krkit.com</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="slider-img">
+            <div class="slider-images">
+              <img src="1.png" alt="Image 1">
+              <img src="2.png" alt="Image 2">
+              <img src="3.png" alt="Image 3">
+
+              
+            </div>
+          </div>
+          <div class="container-orta">
+        <div class="blog-posts">
+            <article>
+                <img src="py.png" width="380px" height="270px" class="icon">
+                <h2>Pythonda Anomali Tespiti</h2>
+                <p>Anomali tespiti, veri setlerindeki olağandışı davranışları veya paternleri belirleme sürecini ifade eden bir konsepttir. Pythonda anomali tespiti, genellikle istatistiksel ve makine öğrenimi teknikleri içerir.</p>
+                <button class="devam"><a href="py.html">Devamını Oku</a></button>
+            </article>
+
+            <article>
+                <img src="hb.png" width="380px" height="270px" class="icon">
+                <h2>PHP ile Hukuk Bürosu Web Sitesi </h2>
+                <p>Anasayfa, Üye Ol, Kayıt Ol ve Randevu Oluştur bölümleri ile PHP Kodları barındıran bir Hukuk Bürosu Web Sitesi</p>
+                <button class="devam"><a href="hb.html">Devamını Oku</a></button>
+            </article>
+
+            <article>
+                <img src="fv.png" width="380px" height="270px" class="icon">
+                <h2>C# Forms Class ve Veritabanlı Sigorta Formu</h2>
+                <p>İçinde 3 adet form ve class bulunduran ekle, sil ve güncelle işlemlerini yapan Phpmyadmin veritabanına bağlı C# forms sigorta formu</p>
+                <button class="devam"><a href="sigortaform.html">Devamını Oku</a></button>
+            </article>
+
+            <article>
+                <img src="V16ekran.png" width="380px" height="270px" class="icon">
+                <h2>Mikro Muhasebe Programı</h2>
+              <p>
+    Mikro Muhasebe Programı, KOBİ'lerin finansal süreçlerini kolay ve güvenilir şekilde yönetmek için tasarlanmış kullanıcı dostu bir muhasebe yazılımıdır.
+</p><button class="devam"><a href="mikro.html">Devamını Oku</a></button>
+            </article>
+      <article>
+    <img src="xslt.png" width="380px" height="270px" class="icon">
+    <h2>Fatura XSLT Döküman Dizaynları</h2>
+    <p>
+        XSLT tabanlı fatura dizaynları, Mikro Muhasebe ve diğer yazılımlarda kullanılan şablonlardır. 
+        Bu dizaynlar sayesinde fatura görünümleri özelleştirilebilir, firma bilgileri, tablo yapıları 
+        ve toplam tutar alanları isteğe göre düzenlenebilir.
+    </p>
+    <button class="devam"><a href="fatura.html">Devamını Oku</a></button>
+</article>
+
+         
+        </div>
+
+        <div class="about-me">
+            <img class="profile-image" src="k1.jpg" height="200px" width="300px">
+            <p><img src="tel.png" width="20px" height="20px">+90 546-580-35-21</p>
+            <p><img src="mail.png" width="20px" height="20px">kayrausta04@gmail.com</p>
+            <p>
+                Merhaba, ben Kayra Halil Usta. Kırklareli Üniversitesinde Bilgisayar Programcılığı, Eskişehir
+                Anadolu Üniversitesinde Web Tasarımı Ve Kodlama okuyorum. 4 Ekim 2004 İstanbul doğumluyum. Okulda
+                kendim ve arkadaşlarımın projelerini ve araştırmalarını bilgisayar ile ilgili bölüm okuyan ve bilgisayar 
+                ile ilgilenen herkese yardımcı olması amacı ile paylaşıyorum. Ayrıca yine üniversiten arkadaşlarla kurduğumuz KRKIT.COM adresinde ve İnstagram sayfasında
+                her türlü web hizmetini veriyoruz. Detaylı bilgi için ilgili linklerden ulaşabilirsiniz.
+            <br><br>
+            <br><br>
+            <br><br>
+            <h3>&nbsp &nbsp &nbsp Bilgisayarla İlgili İlginç Bilgiler;</h2>
+            <p class="bosyazi">
+                <img class="profile-image" src="ada.png" height="200px" width="300px">
+                <br><br>
+                <b>İlk Bilgisayar Programı:</b>
+                    İlk bilgisayar programı, 19. yüzyıl matematikçisi Ada Lovelace tarafından yazılmıştır. Ada Lovelace, Charles Babbage'in tasarladığı Analitik Makine için bir program geliştirmiş ve bu nedenle tarihte ilk bilgisayar programcısı olarak kabul edilir.
+            <br><br>
+            <br><br>
+            <img class="profile-image" src="im.jpg" height="200px" width="300px">
+                <br><br>
+                <b>Mouse'un İcadı:</b>
+                    Mouse, Douglas Engelbart tarafından 1964 yılında icat edildi. İlk fare, ahşap bir kasa üzerinde iki tekerlek ve bir düğme içeriyordu. Günümüzde ise fare tasarımları oldukça çeşitlilik gösteriyor.
+            <br><br>
+            <br><br>
+            <img class="profile-image" src="ilk.png" height="200px" width="300px">
+                <br><br>
+                <b>Internet'in İlk Fotoğrafı:</b>
+World Wide Web'in (WWW) kurucusu Tim Berners-Lee, İsviçre'deki CERN'de ilk web tarayıcısı ve sunucusunu geliştirdi. İlk web sitesinde bulunan fotoğraf ise "Les Horribles Cernettes" adlı bir müzik grubuna aitti
+            <br><br>
+            <br><br>
+            <img class="profile-image" src="ih.jpg" height="200px" width="300px">
+                <br><br>
+                <b>En İlk Bilgisayar Bug'u:</b>
+Bilgisayar hatalarının adı olan "bug" terimi, 1947'de Harvard Mark II bilgisayarındaki bir sorunu giderirken, bilgisayarın içine giren bir güve nedeniyle ortaya çıktı. Bu olay, bilgisayar hatalarına "bug" demenin başlangıcını oluşturdu.
+
+            </p>
+        </div>
+    </div>
+    </main>
+
+    <div class="pagination">
+       
+       
+        <a href="index.html"><button class="page-btn active">1</button></a>
+        <a href="page2.html"><button class="page-btn">2</button></a>
+        <a href="page3.html"><button class="page-btn">3</button></a>
+       
+      </div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="kayra.png" alt="Logo" width="200px" height="60px">
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Anasayfa</a>
+                <a href="cv.html">CV</a>
+                <a href="https://krkit.com/">Web Sitesi İçin</a>
+                <a href="https://www.youtube.com/@kayrausta8728">Youtube'daki Videolar</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.youtube.com/@kayrausta8728"><img src="yt.png" alt="Youtube" width="20px" height="20px"></a>
+                <a href="https://www.instagram.com/krkitbilisim/"><img src="ig.png" alt="Instagram" width="20px" height="20px"></a>
+                <a href="https://www.linkedin.com/in/kayra-usta-a45761252/"><img src="in.png" alt="LinkedIn" width="20px" height="20px"></a>
+               
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Kayra Halil Usta - Tüm Hakları Saklıdır
+        </div>
+    </footer>
+</body>
+<script>  // ----------------------- Üst
+    const sliderImages = document.querySelector('.slider-images');
+    const images = document.querySelectorAll('.slider-images img');
+    let currentIndex = 0;
+    let totalImages = images.length;
+    
+    function slideImages() {
+      // Bir sonraki resme geçiş yap
+      currentIndex++;
+    
+      // Eğer son resme ulaşırsak en başa dön
+      if (currentIndex === totalImages) {
+        currentIndex = 0;
+      }
+    
+      // Her resim genişliği yüzde 100 olduğu için 'currentIndex' değerini kullanarak kaydırıyoruz
+      sliderImages.style.transform = `translateX(${-currentIndex * 100}%)`;
+    }
+    
+    // Her 3 saniyede bir kaydırmayı başlat
+    setInterval(slideImages, 5000);
+    
+      // ----------------------- alt
+      const sliderContainer = document.querySelector('.product-slider');
+    const productCards = document.querySelectorAll('.product-card');
+    const prevButton = document.querySelector('.prev-btn');
+    const nextButton = document.querySelector('.next-btn');
+    
+    let currentSlideIndex = 0;  // currentIndex yerine currentSlideIndex kullanıldı
+    const totalProducts = productCards.length;
+    const cardWidth = productCards[0].offsetWidth + 30; // Kart genişliği + margin (15px sağ ve sol toplamda 30px)
+    
+    // Slider'ı güncelleme fonksiyonu
+    function updateSlider() {
+      sliderContainer.style.transform = `translateX(${-currentSlideIndex * cardWidth}px)`;
+    }</script>
+</html>
