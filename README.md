@@ -1,4 +1,4 @@
-# ✍️ Kayra Usta - Kişisel Blog
+# ✍️ Kayra Usta - Kişisel Blog (branchtaki Güncel Versiyon)
 
 Bu proje, **Kayra Halil Usta**’nın kişisel blog web sitesidir.  
 Blog; yazılım projeleri, üniversite döneminde geliştirilen uygulamalar, teknik yazılar ve **krkit.com** üzerinden yapılan çalışmaların paylaşımlarını içerir.  
@@ -13,5 +13,6 @@ Amacı, hem yazılım geliştirme sürecini belgelendirmek hem de meraklılara i
 - 🔗 **krkit.com Entegrasyonu** – Kendi şirket projelerinin bağlantıları
 - 📱 **Responsive Tasarım** – Mobil, tablet ve masaüstü uyumu
 - ⚡ **Hızlı ve Optimize** – SEO uyumlu, hızlı yüklenen sayfalar
+
 
 
